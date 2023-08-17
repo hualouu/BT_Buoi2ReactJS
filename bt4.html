@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Person {
+            constructor(name) {
+                this._name = name;
+            }
+
+            get name() {
+                return this._name;
+            }
+
+            set name(newName) {
+                this._name = newName;
+            }
+
+            walk() {
+                console.log(`${this._name} is walking.`);
+            }
+        }
+
+        class Programmer extends Person {
+            constructor(name, programmingLanguage) {
+                super(name);
+                this._programmingLanguage = programmingLanguage;
+            }
+
+            get programmingLanguage() {
+                return this._programmingLanguage;
+            }
+
+            set programmingLanguage(newLanguage) {
+                this._programmingLanguage = newLanguage;
+            }
+
+            writeCode() {
+                console.log(`${this._name} is writing code in ${this._programmingLanguage}.`);
+            }
+        }
+
+        // Khai báo đối tượng và kiểm tra kết quả
+        const person = new Person("Naomi");
+        console.log("Person Object:");
+        console.log("Name:", person.name);
+        person.name = "Lou";
+        console.log("Updated Name:", person.name);
+        person.walk();
+        console.log();
+
+        const programmer = new Programmer("Huaxii", "JavaScript");
+        console.log("Programmer Object:");
+        console.log("Name:", programmer.name);
+        console.log("Programming Language:", programmer.programmingLanguage);
+        programmer.programmingLanguage = "ReactJS";
+        console.log("Updated Programming Language:", programmer.programmingLanguage);
+        programmer.walk();
+        programmer.writeCode();
+    </script>
+</body>
+
+</html>
