@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Information {
+            constructor(name, description) {
+                this.name = name;
+                this.description = description;
+            }
+
+            static computeValue(parameter = 1) {
+                return parameter * 3;
+            }
+        }
+
+        class Geometry extends Information {
+            constructor(name, description, length) {
+                super(name, description);
+                this.length = length;
+            }
+
+            computeArea(parameter) {
+                return this.length * Information.computeValue(parameter);
+            }
+        }
+
+        // Tạo các đối tượng và kiểm tra kết quả
+        const info = new Information("Information", "This is some information");
+        console.log("Information Object:");
+        console.log("Name:", info.name);
+        console.log("Description:", info.description);
+        console.log("Computed Value:", Information.computeValue());
+        console.log();
+
+        const geometry = new Geometry("Geometry", "This is a geometry", 5);
+        console.log("Geometry Object:");
+        console.log("Name:", geometry.name);
+        console.log("Description:", geometry.description);
+        console.log("Length:", geometry.length);
+        console.log("Computed Area:", geometry.computeArea(2));
+    </script>
+</body>
+
+</html>
