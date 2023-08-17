@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class ZooManager {
+            constructor() {
+                this.animals = new Set();
+            }
+
+            addAnimal(animal) {
+                this.animals.add(animal);
+                console.log(`Added ${animal} to the zoo.`);
+            }
+
+            containsAnimal(animal) {
+                return this.animals.has(animal);
+            }
+
+            removeAnimal(animal) {
+                this.animals.delete(animal);
+                console.log(`Removed ${animal} from the zoo.`);
+            }
+
+            printAnimalList() {
+                console.log('Animal List:');
+                this.animals.forEach(animal => console.log(animal));
+            }
+        }
+
+        // Sử dụng và kiểm tra chương trình
+        const zoo = new ZooManager();
+
+        zoo.addAnimal("Lion");
+        zoo.addAnimal("Tiger");
+        zoo.addAnimal("Elephant");
+
+        console.log(`Does the zoo contain Tiger? ${zoo.containsAnimal("Tiger")}`);
+        console.log(`Does the zoo contain Giraffe? ${zoo.containsAnimal("Giraffe")}`);
+
+        zoo.removeAnimal("Lion");
+
+        zoo.printAnimalList();
+    </script>
+</body>
+
+</html>
